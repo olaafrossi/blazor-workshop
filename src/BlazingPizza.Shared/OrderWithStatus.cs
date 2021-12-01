@@ -40,10 +40,16 @@ namespace BlazingPizza
                 var startPosition = ComputeStartPosition(order);
                 var proportionOfDeliveryCompleted = Math.Min(1, (DateTime.Now - dispatchTime).TotalMilliseconds / DeliveryDuration.TotalMilliseconds);
                 var driverPosition = LatLong.Interpolate(startPosition, order.DeliveryLocation, proportionOfDeliveryCompleted);
+                var johnPosition = ComputeStartPosition(order);
+                var suzyPosition = ComputeStartPositionRandom(order);
+                var joniPosition = ComputeStartPositionRandomAgain(order);
                 mapMarkers = new List<Marker>
                 {
-                    ToMapMarker("You", order.DeliveryLocation),
+                    ToMapMarker("You: 1", order.DeliveryLocation),
                     ToMapMarker("Driver", driverPosition, showPopup: true),
+                    ToMapMarker("John: 2", johnPosition, showPopup: true),
+                    ToMapMarker("Suzy: 3", suzyPosition, showPopup: true),
+                    ToMapMarker("Joni: 4", joniPosition, showPopup: true),
                 };
             }
             else
@@ -68,6 +74,26 @@ namespace BlazingPizza
             // Random but deterministic based on order ID
             var rng = new Random(order.OrderId);
             var distance = 0.01 + rng.NextDouble() * 0.02;
+            var angle = rng.NextDouble() * Math.PI * 2;
+            var offset = (distance * Math.Cos(angle), distance * Math.Sin(angle));
+            return new LatLong(order.DeliveryLocation.Latitude + offset.Item1, order.DeliveryLocation.Longitude + offset.Item2);
+        }
+
+        private static LatLong ComputeStartPositionRandom(Order order)
+        {
+            // Random but deterministic based on order ID
+            var rng = new Random(order.OrderId);
+            var distance = 0.03 + rng.NextDouble() * 0.04;
+            var angle = rng.NextDouble() * Math.PI * 2;
+            var offset = (distance * Math.Cos(angle), distance * Math.Sin(angle));
+            return new LatLong(order.DeliveryLocation.Latitude + offset.Item1, order.DeliveryLocation.Longitude + offset.Item2);
+        }
+
+        private static LatLong ComputeStartPositionRandomAgain(Order order)
+        {
+            // Random but deterministic based on order ID
+            var rng = new Random(order.OrderId);
+            var distance = 0.005 + rng.NextDouble() * 0.01;
             var angle = rng.NextDouble() * Math.PI * 2;
             var offset = (distance * Math.Cos(angle), distance * Math.Sin(angle));
             return new LatLong(order.DeliveryLocation.Latitude + offset.Item1, order.DeliveryLocation.Longitude + offset.Item2);
