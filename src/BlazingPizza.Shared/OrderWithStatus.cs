@@ -46,10 +46,10 @@ namespace BlazingPizza
                 mapMarkers = new List<Marker>
                 {
                     ToMapMarker("You: 1", order.DeliveryLocation),
+                    ToMapMarker("John: 2", johnPosition),
+                    ToMapMarker("Suzy: 3", suzyPosition),
+                    ToMapMarker("Joni: 4", joniPosition),
                     ToMapMarker("Driver", driverPosition, showPopup: true),
-                    ToMapMarker("John: 2", johnPosition, showPopup: true),
-                    ToMapMarker("Suzy: 3", suzyPosition, showPopup: true),
-                    ToMapMarker("Joni: 4", joniPosition, showPopup: true),
                 };
             }
             else
