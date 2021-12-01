@@ -6,7 +6,7 @@
 </div>
 <form class="dialog-body">
     <div>
-        <label>Size:</label>
+        <label>Type:</label>
         <input type="range" min="1" max="3" @bind="Pizza.Size" @bind:event="oninput" />
         <span class="size-label">
             @(Pizza.Size)" ($@(Pizza.GetFormattedTotalPrice()))
@@ -20,7 +20,7 @@
                 <option>(loading...)</option>
             </select>
         }
-        else if (Pizza.Toppings.Count >= 6)
+        else if (Pizza.Toppings.Count >= 2)
         {
             <div>(maximum reached)</div>
         }
