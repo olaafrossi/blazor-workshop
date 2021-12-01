@@ -6,22 +6,17 @@ namespace BlazingPizza
     {
         public int Id { get; set; }
 
-        [Required, MaxLength(100)]
-        public string Name { get; set; }
+        [MaxLength(100)] public string Name { get; set; } = "test user";
 
-        [Required, MaxLength(100)]
-        public string Line1 { get; set; }
+        [MaxLength(100)] public string Line1 { get; set; } = "some address";
 
         [MaxLength(100)]
         public string Line2 { get; set; }
 
-        [Required, MaxLength(50)]
-        public string City { get; set; }
+        [MaxLength(50)] public string City { get; set; } = "NY";
 
-        [Required, MaxLength(20)]
-        public string Region { get; set; }
+        [MaxLength(20)] public string Region { get; set; } = "NY";
 
-        [Required, MaxLength(20)]
-        public string PostalCode { get; set; }
+        [MaxLength(20)] public string PostalCode { get; set; } = "10024";
     }
 }

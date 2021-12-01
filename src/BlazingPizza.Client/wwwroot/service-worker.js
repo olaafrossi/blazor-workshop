@@ -12,7 +12,7 @@ self.addEventListener('fetch', event => {
 self.addEventListener('push', event => {
     const payload = event.data.json();
     event.waitUntil(
-        self.registration.showNotification('Blazing Pizza', {
+        self.registration.showNotification('Kernel Food', {
             body: payload.message,
             icon: 'img/icon-512.png',
             vibrate: [100, 50, 100],

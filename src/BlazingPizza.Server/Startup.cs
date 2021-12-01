@@ -26,7 +26,8 @@ namespace BlazingPizza.Server
         [HttpPost]
         public ActionResult Create()
         {
-            var domain = "https://localhost";
+            // var domain = "https://localhost/";
+            var domain = "https://kerneltechnical.azurewebsites.net/";
             var options = new SessionCreateOptions
             {
                 LineItems = new List<SessionLineItemOptions>
