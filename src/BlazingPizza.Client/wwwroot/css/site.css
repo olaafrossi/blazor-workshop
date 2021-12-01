@@ -199,7 +199,7 @@ form {
     }
 
 .price::before {
-    content: '£';
+    content: '$';
     font-weight: 300;
     font-size: 1.2rem;
     margin-right: 0.2rem;
@@ -455,7 +455,7 @@ form {
 }
 
 .dialog .topping-price::before {
-    content: '£';
+    content: '$';
 }
 
 .delete-topping {
