@@ -114,11 +114,11 @@ namespace BlazingPizza.Server
         private static async Task<Order> SendNotificationAsync(Order order, NotificationSubscription subscription, string message)
         {
             // For a real application, generate your own
-            var publicKey = "BLC8GOevpcpjQiLkO7JmVClQjycvTCYWm6Cq_a7wJZlstGTVZvwGFFHMYfXt6Njyvgx_GlXJeo5cSiZ1y4JOx1o";
-            var privateKey = "OrubzSz3yWACscZXjFQrrtDwCKg-TGFuWhluQ2wLXDo";
+            var publicKey = "BBlRBJXXhMpJxB3knL87DALSC5gRIi5ZqyUwCOdDVuGu-eq-y-Id5VO_xcCFLlh5f3F01-zS2JpB0bVDo7Lz4SU";
+            var privateKey = "x0XZP3LtC2I14Rr7ZOYLon9qf5u-yL-jtDcqhha5QXM";
 
             var pushSubscription = new PushSubscription(subscription.Url, subscription.P256dh, subscription.Auth);
-            var vapidDetails = new VapidDetails("mailto:<someone@example.com>", publicKey, privateKey);
+            var vapidDetails = new VapidDetails("mailto:<olaaf.rossi@gmail.com>", publicKey, privateKey);
             var webPushClient = new WebPushClient();
             try
             {
